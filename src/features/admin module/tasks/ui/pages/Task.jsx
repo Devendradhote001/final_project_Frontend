@@ -1,11 +1,8 @@
 import React from "react";
+import TaskWorkspace from "../components/TaskWorkspace";
 
 const Task = () => {
-  return (
-    <div>
-      <h1>Task page for admin</h1>
-    </div>
-  );
+  return <TaskWorkspace />;
 };
 
 export default Task;

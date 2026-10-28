@@ -10,7 +10,11 @@ axiosInstance.interceptors.response.use(
   async (error) => {
     let originalReq = error.config;
 
-    if (error.response.status === 401 && !originalReq.retry) {
+    if (
+      error.response?.status === 401 &&
+      !originalReq.retry &&
+      !originalReq.url?.includes("/auth/get-accessToken")
+    ) {
       originalReq.retry = true;
 
       try {
@@ -21,5 +25,7 @@ axiosInstance.interceptors.response.use(
         return Promise.reject(error);
       }
     }
+
+    return Promise.reject(error);
   }
 );
