@@ -7,25 +7,25 @@ export let axiosInstance = axios.create({
 
 axiosInstance.interceptors.response.use(
   (response) => response,
-  async (error) => {
-    let originalReq = error.config;
+  // async (error) => {
+  //   let originalReq = error.config;
 
-    if (
-      error.response?.status === 401 &&
-      !originalReq.retry &&
-      !originalReq.url?.includes("/auth/get-accessToken")
-    ) {
-      originalReq.retry = true;
+  //   if (
+  //     error.response?.status === 401 &&
+  //     !originalReq.retry &&
+  //     !originalReq.url?.includes("/auth/get-accessToken")
+  //   ) {
+  //     originalReq.retry = true;
 
-      try {
-        await axiosInstance.get("/auth/get-accessToken");
-        return axiosInstance(originalReq);
-      } catch (error) {
-        window.location.href = "/";
-        return Promise.reject(error);
-      }
-    }
+  //     try {
+  //       await axiosInstance.get("/auth/get-accessToken");
+  //       return axiosInstance(originalReq);
+  //     } catch (error) {
+  //       window.location.href = "/";
+  //       return Promise.reject(error);
+  //     }
+  //   }
 
-    return Promise.reject(error);
-  }
+  //   return Promise.reject(error);
+  // }
 );
