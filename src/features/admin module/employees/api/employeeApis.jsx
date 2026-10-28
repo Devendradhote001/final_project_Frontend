@@ -10,7 +10,7 @@ export let getAllEmployees = async ({
 }) => {
   try {
     let res = await axiosInstance.get(
-      `/employee?page=${page}&limit=${limit}&search=${search}&role=${role}&department=${department}&status=${status}`
+      `/employee?page=${page}&limit=${limit}&search=${search}&role=${role}&department=${department}&status=${status}`,
     );
     return res.data.data;
   } catch (error) {

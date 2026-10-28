@@ -1,3 +1,4 @@
+import AllDepartment from "../../features/admin module/departments/ui/pages/AllDepartment";
 import Department from "../../features/admin module/departments/ui/pages/Department";
 import Document from "../../features/admin module/documents/ui/pages/Document";
 import AddEmployee from "../../features/admin module/employees/ui/pages/AddEmployee";
@@ -22,7 +23,7 @@ export let adminRoutes = [
     element: <Department />,
   },
   {
-    path: "/home/document",
-    element: <Document />,
+    path: "/home/all-departments",
+    element: <AllDepartment />,
   },
 ];
